@@ -1,0 +1,67 @@
+Table products {
+  id integer [pk, increment]
+  sku text [not null, unique]
+  name text [not null]
+  unit_price real [not null]
+  stock_qty integer [not null]
+}
+Table distributors {
+  id integer [pk, increment]
+  name text [not null]
+  credit_limit real [not null]
+  tier text [not null, default: 'Bronze']
+}
+Table managers {
+  id integer [pk, increment]
+  name text [not null]
+}
+Table orders {
+  id integer [pk, increment]
+  distributor_id integer [not null, ref: > distributors.id]
+  status text [not null]
+  subtotal real [not null]
+  discount_percent integer [not null]
+  discount_amount real [not null]
+  total real [not null]
+  points_awarded integer [not null, default: 0]
+  reservation_released integer [not null, default: 0]
+  idempotency_key text [unique]
+  created_at text [not null]
+}
+Table order_items {
+  id integer [pk, increment]
+  order_id integer [not null, ref: > orders.id]
+  product_id integer [not null, ref: > products.id]
+  sku text [not null]
+  product_name text [not null]
+  quantity integer [not null]
+  unit_price real [not null]
+  line_total real [not null]
+}
+Table order_events {
+  id integer [pk, increment]
+  order_id integer [not null, ref: > orders.id]
+  from_status text
+  to_status text [not null]
+  actor text [not null]
+  created_at text [not null]
+}
+Table point_ledger {
+  id integer [pk, increment]
+  distributor_id integer [not null, ref: > distributors.id]
+  order_id integer [not null, ref: > orders.id]
+  points integer [not null]
+  reason text [not null]
+  created_at text [not null]
+}
+Table erp_events {
+  id integer [pk, increment]
+  order_id integer [not null, ref: > orders.id]
+  from_status text
+  to_status text [not null]
+  payload text [not null]
+  delivered integer [not null, default: 0]
+  attempts integer [not null, default: 0]
+  last_error text
+  created_at text [not null]
+}

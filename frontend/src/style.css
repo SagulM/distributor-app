@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: #f5f7fa;
+    color: #172033;
+    font: 15px/1.5 system-ui, -apple-system, Segoe UI, sans-serif
+}
+
+main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 0
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px
+}
+
+header p {
+    margin: 4px 0;
+    color: #667085
+}
+
+label {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 600
+}
+
+select,
+input {
+    padding: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: white;
+    max-width: 100%
+}
+
+section {
+    background: white;
+    border: 1px solid #e1e6ee;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 18px 0;
+    box-shadow: 0 2px 8px #10182808
+}
+
+h2 {
+    margin: 0 0 14px;
+    font-size: 20px
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px
+}
+
+.stats div {
+    padding: 10px 12px;
+    background: #f8fafc;
+    border-radius: 8px
+}
+
+.stats small,
+.stats strong {
+    display: block
+}
+
+.stats small {
+    color: #667085
+}
+
+.stats strong {
+    font-size: 22px;
+    margin-top: 4px
+}
+
+.table-wrap {
+    overflow-x: auto
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 680px
+}
+
+th,
+td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #edf0f4
+}
+
+th {
+    font-size: 13px;
+    color: #475467;
+    background: #f8fafc
+}
+
+td input {
+    width: 80px
+}
+
+button {
+    border: 1px solid #cbd5e1;
+    background: white;
+    border-radius: 6px;
+    padding: 7px 10px;
+    cursor: pointer;
+    margin: 2px
+}
+
+button:hover {
+    background: #f1f5f9
+}
+
+.primary {
+    background: #1d4ed8;
+    color: white;
+    border-color: #1d4ed8;
+    margin-top: 14px
+}
+
+.danger {
+    color: #b42318
+}
+
+.message {
+    background: #fffaeb;
+    border: 1px solid #fedf89;
+    padding: 10px 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+footer {
+    text-align: center;
+    color: #667085;
+    padding: 20px
+}
+
+@media(max-width:650px) {
+    main {
+        padding: 12px
+    }
+
+    header {
+        align-items: flex-start;
+        flex-direction: column
+    }
+
+    .stats {
+        grid-template-columns: 1fr
+    }
+
+    h1 {
+        font-size: 23px
+    }
+}
